@@ -48,8 +48,13 @@ input:checked ~ label .button:after {
 }
 
 .menu {
-  height: 99%;
+  height: 100%;
+  width: 0;
   transition: 3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+
 }
 .menu ul {
     display: none;
@@ -66,9 +71,6 @@ input:checked ~ .menu {
     align-items: center;
     text-align: center;
     line-height: 50px;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 input:checked ~ .menu ul {
