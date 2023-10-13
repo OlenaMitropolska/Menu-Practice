@@ -4,3 +4,93 @@
     box-sizing: border-box;
     list-style: none;
 }
+body {
+    height: 100vh;
+    width: 100vw;
+}
+.button {
+    height: 5px;
+    width: 25px;
+    background-color: rgb(235, 127, 12);
+    position: relative;
+    top: 30px;
+    left: 30px;
+    transition: 3s;
+    z-index: 1;
+}
+.button::before , .button::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 25px;
+    background-color: rgb(235, 127, 12);
+    transition: 3s;
+}
+.button::before {
+    top: -8px;
+}
+.button::after {
+    top: 8px;
+}
+input {
+    display: none;
+}
+input:checked ~ label .button {
+background-color: transparent;
+}
+input:checked ~ label .button::before {
+    transform: rotate(405deg);
+    top: 0;
+}
+input:checked ~ label .button:after {
+    transform: rotate(-405deg);
+    top: 0;
+}
+
+.menu {
+  height: 99%;
+  transition: 3s;
+}
+.menu ul {
+    display: none;
+}
+
+input:checked ~ .menu {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(241, 185, 124);
+    color: white;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+input:checked ~ .menu ul {
+    display: inline-block;
+}
+
+li {
+    position: relative;
+}
+li::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    bottom: -5px;
+    width: 100%;
+    background-color: rgb(192, 103, 9);
+    left: 0;
+   transform: scaleX(0);
+   transform-origin: right;
+   transition: transform .3s;
+}
+li:hover::before {
+    transform-origin: left;
+transform: scale(1);
+}
